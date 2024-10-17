@@ -1,0 +1,9 @@
+<!-- <article [class.completed]="isComplete"> -->
+<article>
+  <h2>{{ task.title }}</h2>
+  <time class="black">{{ task.dueDate | date: 'longTime'}}</time>
+  <p>{{ task.summary }}</p>
+  <p class="actions">
+    <button (click)="completeTask()">{{ buttonText }}</button>
+  </p>
+</article>

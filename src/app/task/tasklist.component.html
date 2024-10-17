@@ -1,0 +1,19 @@
+<section id="tasks">
+  @if(addTaskValue){
+    <app-new-task (cancel)="closeTask()" [selectedUserId]="selectedUserId"/>
+  }
+  <input type="text" name="search" id="search" placeholder="Search by title" [(ngModel)]="text">
+  <header>
+    <h2>{{ name }}'s Task</h2>
+    <menu>
+      <button (click)="addTask()">Add Task</button>
+    </menu>
+  </header>
+  <ul>
+    @for (task of selectedUser | search: text; track task.id) {
+        <li><app-task-item [task]="task" (complete)="completeTask($event)"/>
+        </li>
+    }
+    
+  </ul>
+</section>
